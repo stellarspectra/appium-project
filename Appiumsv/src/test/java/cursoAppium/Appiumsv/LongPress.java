@@ -21,7 +21,7 @@ public class LongPress extends BaseTest{
 		WebElement ele = driver.findElement(By.xpath("//android.widget.TextView[@text='People Names']"));
 		((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of("elementId", ((RemoteWebElement)ele).getId(), "duration",2000));
 		Thread.sleep(2000);
-		
+		System.out.println("git");
 		
 	}
 }
