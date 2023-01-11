@@ -5,8 +5,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -29,9 +34,13 @@ public class BaseTest {
 		UiAutomator2Options options = new UiAutomator2Options();
 		// Appium code -> Appium server -> Mobile
 		options.setDeviceName("PauDevice");
-		options.setApp("C:\\Users\\Pau\\eclipse-workspace\\Appiumsv\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+		options.setApp("C:\\Users\\Pau\\git\\repository\\Appiumsv\\src\\test\\java\\resources\\ApiDemos-debug.apk");
 		driver = new AndroidDriver(new URL("http://0.0.0.0:4723"), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	
+	public void longPressAction(WebElement ele) {
+		((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of("elementId", ((RemoteWebElement)ele).getId(), "duration",2000));
 	}
 	
 	@AfterClass
