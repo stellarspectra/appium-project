@@ -43,6 +43,23 @@ public class BaseTest {
 		((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of("elementId", ((RemoteWebElement)ele).getId(), "duration",2000));
 	}
 	
+	public void swipeAction(WebElement ele, String direction) {
+		 ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+					"elementId",  ((RemoteWebElement)ele).getId(),
+				    "direction", direction,
+				    "percent", 3.0
+				));
+	}
+	
+	public void dragDropAction(WebElement ele, int endX, int endY) {
+		 ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+					"elementId",  ((RemoteWebElement)ele).getId(),
+				    "endX", endX,
+				    "endY", endY
+				));
+	}
+	
+	
 	@AfterClass
 	public void tearDown() {
 		driver.quit();
