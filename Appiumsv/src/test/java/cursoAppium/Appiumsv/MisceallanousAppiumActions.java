@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -22,9 +23,18 @@ public class MisceallanousAppiumActions extends BaseTest{
 	@Test
 	public void Miscellaneous() throws MalformedURLException {
 	
+		
+		//App package - ir a un menu predeterminado sin pasar por todo el menu
+		//en consola:
+		// 1- asegurarse del device: adb device
+		// 2- adb shell dumpsys window | find "mCurrentFocus"
+		// 3- lo que está antes del barra es el paquete y lo que está después es la actividad
+		Activity activity = new Activity("io.appium.android.apis", "io.appium.android.apis.preference.PreferenceDependencies");
+		driver.startActivity(activity);
+				
 		//tagName[@attribute='value'] []
-		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		driver.findElement(AppiumBy.accessibilityId("3. Preference dependencies")).click();
+		//driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+		//driver.findElement(AppiumBy.accessibilityId("3. Preference dependencies")).click();
 		driver.findElement(AppiumBy.id("android:id/checkbox")).click();
 		
 		// rotar el celular
@@ -49,6 +59,8 @@ public class MisceallanousAppiumActions extends BaseTest{
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.pressKey(new KeyEvent(AndroidKey.HOME));
 
+	
+		
 	
 	}
 }

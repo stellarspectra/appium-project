@@ -34,7 +34,8 @@ public class BaseTest {
 		UiAutomator2Options options = new UiAutomator2Options();
 		// Appium code -> Appium server -> Mobile
 		options.setDeviceName("PauDevice");
-		options.setApp("C:\\Users\\Pau\\git\\repository\\Appiumsv\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+		//options.setApp("C:\\Users\\Pau\\git\\repository\\Appiumsv\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+		options.setApp("C:\\Users\\Pau\\git\\repository\\Appiumsv\\src\\test\\java\\resources\\General-Store.apk");
 		driver = new AndroidDriver(new URL("http://0.0.0.0:4723"), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
