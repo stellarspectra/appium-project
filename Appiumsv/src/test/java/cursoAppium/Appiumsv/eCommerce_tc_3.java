@@ -39,8 +39,16 @@ public class eCommerce_tc_3 extends BaseTest{
 			double totalsum = 0;
 			for(int i = 0; i < count; i++) {
 				String amountString = productPrices.get(i).getText();
-				Double price = Double.parseDouble(amountString.substring(1));
+				Double price = getFormattedAmount(amountString);
 				totalsum = totalsum + price;
 			}
+			
+			String displaySum = driver.findElement(By.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();
+			Double displayFormattedSum = getFormattedAmount(displaySum);
+			
+			Assert.assertEquals(totalsum, displayFormattedSum);
+			
+			
+			
 		}
 }
