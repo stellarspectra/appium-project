@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cursoAppium.Appiumsv.eCommerce_tc_1">
+      <class name="cursoAppium.Appiumsv.eCommerce_tc_3">
         <methods>
           <include name="tearDown"/>
           <include name="FillForm"/>
           <include name="ConfigureAppium"/>
         </methods>
-      </class> <!-- cursoAppium.Appiumsv.eCommerce_tc_1 -->
+      </class> <!-- cursoAppium.Appiumsv.eCommerce_tc_3 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
